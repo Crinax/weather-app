@@ -1,0 +1,8 @@
+.weatherCard {
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 600px;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px #00000090;
+} 

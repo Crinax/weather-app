@@ -56,8 +56,6 @@ export default class API implements APIInterface {
     const geoData: ResponseMapquestT = await $geo?.data;
     const weatherData: WeatherResponseT = await $weather?.data;
 
-    console.log(geoData);
-
     const response = {
       city: {
         country: geoData.results[0].locations[0].adminArea1,

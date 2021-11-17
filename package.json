@@ -4,14 +4,14 @@
   "description": "Application on React that shows weather",
   "scripts": {
     "install": "yarn --cwd ./serv && yarn --cwd ./app",
-    "watch": "node index.js",
     "serve": "yarn --cwd ./serv start",
-    "test": "echo tests"
+    "run-app": "yarn --cwd ./app start",
+    "start": "yarn serve & yarn run-app"
   },
   "repository": "https://github.com/Crinax/weather-app.git",
   "author": "Crinax <agreedeth@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "nodemon": "^2.0.15"
+  "devDependencies": {
+    "@types/node": "^16.11.7"
   }
 }

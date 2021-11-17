@@ -12,7 +12,7 @@ const app = express();
 app.use('/api/:version/:method', async (req, res) => {
   const method = req.params.method as MethodT;
   const api = APIFactory.get(req.params.version, [
-    req.params.method as MethodT,
+    method,
     req.query
   ]);
   if (api.response.code !== 200) {
@@ -24,4 +24,4 @@ app.use('/api/:version/:method', async (req, res) => {
 
 app.listen(port);
 
-console.log(`Server start at http://localhost:${port}`)
+console.log(`Server started at http://localhost:${process.env.PORT}`);
