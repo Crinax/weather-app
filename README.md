@@ -25,7 +25,7 @@ Application on React that shows weather
 API default path: `http://localhost:{PORT}/api/v1`
 
 ### Methods
-- `/weather?lantitude={lantitude}&longitude={longitude}` - get the weather for this coordinates
+- `/weather?latitude={latitude}&longitude={longitude}` - get the weather for this coordinates
 
 ### Response fields
 - Get the weather for this coordinates
