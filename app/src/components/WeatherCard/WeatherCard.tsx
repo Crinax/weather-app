@@ -53,9 +53,9 @@ function WeatherCard({ coords }: IWeatherCardProps) {
         } else {
           setBgColor(undefined);
         }
-        setWeatherData(response)
+        setWeatherData(response);
+        setIsRequested(true);
       });
-      setIsRequested(true);
     }
     const date = new Date();
     const nowDate = date.toLocaleDateString();
@@ -65,14 +65,13 @@ function WeatherCard({ coords }: IWeatherCardProps) {
         down: new Date(`${nowDate}, 05:59:59`),
       },
       dayEnd: {
-        up: new Date(`${nowDate}, 18:00:00 PM`),
-        down: new Date(`${nowDate}, 23:59:59 PM`),
+        up: new Date(`${nowDate}, 18:00:00`),
+        down: new Date(`${nowDate}, 23:59:59`),
       },
     }
-    
 
     if (
-      (nightBorders.dayBegin.up >= date && nightBorders.dayBegin.down < date) ||
+      (nightBorders.dayBegin.up <= date && nightBorders.dayBegin.down < date) ||
       (nightBorders.dayEnd.up >= date && nightBorders.dayEnd.down < date)
     ) theme = style.weatherCardNight;
 
