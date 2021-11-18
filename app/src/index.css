@@ -1,3 +1,12 @@
+* {
+  --day-bg-color: #10b7b7;
+  --night-bg-color: #001b59;
+  --cloudy-bg-color: #7a808f;
+  --thunder-bg-color: #2b3937;
+  --rain-bg-color: #4b8379;
+  --snow-bg-color: #98c6ca;
+  --fog-bg-color: #aeaeae;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

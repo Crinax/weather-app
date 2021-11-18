@@ -6,9 +6,8 @@ interface IWeatherHeaderProps {
   weatherData?: ResponseType,
 }
 
-const WeatherHeader: React.FC<IWeatherHeaderProps> = ({ weatherData }): JSX.Element => {
-  console.log(weatherData);
-  if (weatherData) {
+function WeatherHeader({ weatherData }: IWeatherHeaderProps): JSX.Element {
+  if (weatherData && weatherData.code === 200) {
     const { weather } = weatherData.data;
     return (<div>{weather.description}</div>)
   }

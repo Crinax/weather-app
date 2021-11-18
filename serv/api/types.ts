@@ -1,6 +1,6 @@
 import APIInterface from './v1/APIInterface';
 
-type MethodT = 'weather' | 'secret';
+type MethodT = 'weather';
 
 type QueryT = {
   api_key?: string,

@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import APIFactory from './api/APIFactory';
 import { MethodT } from './api/types';
 
@@ -8,6 +9,7 @@ dotenv.config();
 const port = process.env.PORT;
 const app = express();
 
+app.use(cors());
 
 app.use('/api/:version/:method', async (req, res) => {
   const method = req.params.method as MethodT;

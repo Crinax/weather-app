@@ -5,4 +5,12 @@
   max-width: 800px;
   border-radius: 10px;
   box-shadow: 5px 5px 20px #00000090;
-} 
+}
+
+.weatherCardDay {
+  background-color: var(--day-bg-color);
+}
+
+.weatherCardNight {
+  background-color: var(--night-bg-color);
+}

@@ -5,5 +5,4 @@ export default interface APIInterface {
 
   init(): Promise<Promise<Function>>;
   getWeather(): Promise<APIResponse>;
-  getSecret(): string;
 }

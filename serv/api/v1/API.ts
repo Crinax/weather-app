@@ -11,20 +11,8 @@ export default class API implements APIInterface {
     this.method = this.methodDict[params[0]];
     this.query = params[1];
 
-    if (params[0] !== 'secret') {
-      if (!this.query) {
-        this.response = new APIResponse(403, `Access forbidden: API key not specified. See this page https://localhost:${process.env.PORT}/api/v1/secret`);
-      }
-    }
-    if (this.response.code === 200) {
-      if (!this.checkApiKey(this.query.api_key)) {
-        this.response = new APIResponse(403, `Access forbidden: wrong API key. See this page https://localhost:${process.env.PORT}/api/v1/secret`);
-      }
-      else {
-        if (this.query.latitude === undefined || this.query.longitude === undefined) {
-          this.response = new APIResponse(400, `Bad request: latitude and longitude are required parameters`);
-        }
-      }
+    if (this.query.latitude === undefined || this.query.longitude === undefined) {
+      this.response = new APIResponse(400, `Bad request: latitude and longitude are required parameters`);
     }
   }
 
@@ -33,10 +21,8 @@ export default class API implements APIInterface {
   protected method: Function;
   protected query: QueryT;
 
-  private api_key: string = 'API_KEY';
   private methodDict: MethodDictT = {
     weather: this.getWeather,
-    secret: this.getSecret
   }
 
   async init() {
@@ -97,25 +83,8 @@ export default class API implements APIInterface {
     return this.response;
   }
 
-  private setSecret() {
-    this.api_key = this.generateApiKey();
-  }
-
   private throwErr(err: any) {
     console.log(err);
     this.response = new APIResponse(500, 'Internal server error: something went wrong. Contact the administrator');
-  }
-
-  getSecret() {
-    if (this.api_key === 'API_KEY') this.setSecret();
-    return this.api_key;
-  }
-
-  private checkApiKey(apiKey: string | undefined) {
-    return this.api_key === apiKey;
-  }
-
-  private generateApiKey() {
-    return crypto.randomBytes(32).toString('base64');
   }
 }

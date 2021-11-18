@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WeatherCard from '../WeatherCard';
+import dotenv from 'dotenv';
 
-const App: React.FC = () => {
-  const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
-  
-  navigator.geolocation.watchPosition((location) => {
-    setCoords(location.coords);
-  });
+dotenv.config();
+
+type CoordsType = {
+  latitude: number,
+  longitude: number,
+}
+
+function App() {
+  const [coords, setCoords] = useState<CoordsType>();
+  useEffect(() => {
+    if (!coords) {
+      navigator.geolocation.getCurrentPosition((location) => setCoords(location.coords));
+    }
+  })
 
   return (
     <WeatherCard coords={coords}></WeatherCard>
