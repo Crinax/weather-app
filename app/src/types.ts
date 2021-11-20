@@ -39,8 +39,13 @@ export type WeatherResponseType = {
 export type ResponseType = {
   code: number,
   message: string,
-  data: {
+  data?: {
     city: CityResponseType,
     weather: WeatherResponseType,
   },
+}
+
+export type CoordsType = {
+  latitude: number,
+  longitude: number,
 }

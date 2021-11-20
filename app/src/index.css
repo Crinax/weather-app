@@ -6,6 +6,14 @@
   --rain-bg-color: #4b8379;
   --snow-bg-color: #98c6ca;
   --fog-bg-color: #aeaeae;
+
+  --day-opac-bg-color: #10b7b7a0;
+  --night-opac-bg-color: #001b59a0;
+  --cloudy-opac-bg-color: #7a808fc0;
+  --thunder-opac-bg-color: #2b3937a0;
+  --rain-opac-bg-color: #4b8379a0;
+  --snow-opac-bg-color: #98c6caa0;
+  --fog-opac-bg-color: #aeaeaea0;
 }
 body {
   margin: 0;

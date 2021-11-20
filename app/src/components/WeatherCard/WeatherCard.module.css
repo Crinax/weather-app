@@ -5,12 +5,62 @@
   max-width: 800px;
   border-radius: 10px;
   box-shadow: 5px 5px 20px #00000090;
+  color: white;
+  font-weight: bolder;
 }
 
 .weatherCardDay {
-  background-color: var(--day-bg-color);
+  background: linear-gradient(135deg,
+    var(--day-bg-color),
+    var(--day-opac-bg-color),
+    var(--day-bg-color)
+  );
 }
 
 .weatherCardNight {
-  background-color: var(--night-bg-color);
+  background: linear-gradient(135deg,
+    var(--night-bg-color),
+    var(--night-opac-bg-color),
+    var(--night-bg-color)
+  );
+}
+
+.weatherCardThunder {
+  background: linear-gradient(135deg,
+    var(--thunder-bg-color),
+    var(--thunder-opac-bg-color),
+    var(--thunder-bg-color)
+  );
+}
+
+.weatherCardDrizzle, .weatherCardRain {
+  background: linear-gradient(135deg,
+    var(--rain-bg-color),
+    var(--rain-opac-bg-color),
+    var(--rain-bg-color)
+  );
+}
+
+.weatherCardSnow {
+  background: linear-gradient(135deg,
+    var(--snow-bg-color),
+    var(--snow-opac-bg-color),
+    var(--snow-bg-color)
+  );
+}
+
+.weatherCardClouds {
+  background: linear-gradient(135deg,
+    var(--cloudy-bg-color),
+    var(--cloudy-opac-bg-color),
+    var(--cloudy-bg-color)
+  );
+}
+
+.weatherCardFog {
+  background: linear-gradient(135deg,
+    var(--fog-bg-color),
+    var(--fog-opac-bg-color),
+    var(--fog-bg-color)
+  );
 }

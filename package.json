@@ -13,5 +13,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.11.7"
+  },
+  "dependencies": {
+    "mobx-react-lite": "^3.2.2"
   }
 }
