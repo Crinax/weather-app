@@ -28,8 +28,10 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
   const { code, message, data } = weatherData as ResponseType;
   let theme = style.weatherCardDay;
   
-  if (code !== 200) {
-    return (<Loader />)  
+  if (code === 0) {
+    return (<Loader />);
+  } else if (code !== 200) {
+    return (<Loader message={message} error />);
   }
   
   if (data) {
@@ -66,7 +68,7 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
 
   return (
     <div className={strClasses}>
-      <WeatherHeader weatherData={weatherData} />
+      <WeatherHeader weatherData={weatherData} isDay={theme === style.weatherCardDay}/>
     </div>
   );
 }

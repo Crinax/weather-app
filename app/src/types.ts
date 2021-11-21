@@ -25,6 +25,7 @@ export type WindResponseType = {
 }
 
 export type WeatherResponseType = {
+  id: number,
   main: string,
   description: string,
   temperature: TempResponseType,

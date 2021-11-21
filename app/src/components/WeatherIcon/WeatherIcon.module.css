@@ -1,0 +1,11 @@
+.weatherIcon {
+	display: flex;
+	align-items: center;
+}
+
+.weatherIcon .icon {
+	font-size: 76pt;
+	color: white;
+  font-family: "dripicons-weather"
+}
+

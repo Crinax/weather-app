@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import APIResponse from './APIResponse';
 import APIInterface from './APIInterface';
@@ -34,8 +34,17 @@ export default class API implements APIInterface {
     const urlMapquest = `https://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.MAPQUEST_KEY}&location=${latitude}%2C${longitude}&outFormat=json&thumbMaps=false`
     const urlWeather = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.OPENWEATHER_KEY}`;
 
-    const $geo = await axios.get(urlMapquest).catch(this.throwErr);
-    const $weather = await axios.get(urlWeather).catch(this.throwErr);
+    let $geo: AxiosResponse = { status: 0, statusText: 'ok', headers: {}, config: {}, data: {} };
+    let $weather: AxiosResponse = { status: 0, statusText: 'ok', headers: {}, config: {}, data: {} };
+
+    await (async () => {
+      try {
+        $geo = await axios.get(urlMapquest);
+        $weather = await axios.get(urlWeather);
+      } catch(err) {
+        this.response = new APIResponse(502, 'Connection error. Try to reload page.');
+      }
+    })();
 
     if (this.response.code !== 200) return this.response;
 
@@ -52,6 +61,7 @@ export default class API implements APIInterface {
         street: geoData.results[0].locations[0].street,
       },
       weather: {
+        id: weatherData.weather[0].id,
         main: weatherData.weather[0].main,
         description: weatherData.weather[0].description,
         temperature: {

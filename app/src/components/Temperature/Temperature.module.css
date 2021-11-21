@@ -1,0 +1,14 @@
+td {
+  padding: 0 1em 0 0;
+}
+
+.tempValue:not(:nth-child(2))::before {
+  content: '';
+  /* margin: 0 1em 0 0; */
+}
+
+.dataTemperature {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}

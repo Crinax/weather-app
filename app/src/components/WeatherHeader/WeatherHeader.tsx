@@ -1,22 +1,36 @@
 import React from 'react';
 
-import { ResponseType } from '../../types';
+import styles from './WeatherHeader.module.css';
+import { ResponseType, CityResponseType, WeatherResponseType } from '../../types';
+import WeatherIcon from '../WeatherIcon';
+import Temperature from '../Temperature';
+import City from '../City';
 
 interface IWeatherHeaderProps {
   weatherData: ResponseType,
+  isDay: boolean,
 }
 
-function WeatherHeader({ weatherData }: IWeatherHeaderProps): JSX.Element {
-  if (weatherData.data) {
-    const { code, data, message } = weatherData as ResponseType;
-    if (code === 200 && data) {
-      const { weather } = data;
-      return (<div>{weather.description}</div>)
+function WeatherHeader({ weatherData, isDay }: IWeatherHeaderProps): JSX.Element | null {
+  if (!weatherData.data) {
+    const { code } = weatherData as ResponseType;
+    if (code === 200) {
+      return null;
     }
-    return (<div>Error {code}: {message}</div>)
+    return null;
   }
+  const { city, weather } = weatherData.data as {
+    id: number,
+    city: CityResponseType;
+    weather: WeatherResponseType;
+  };
+
   return (
-    <div></div>
+    <div className={styles.weatherHeader}>
+      <WeatherIcon id={weather.id} name={weather.main} description={weather.description} isDay={isDay} />
+      <Temperature temp={weather.temperature} />
+      <City data={city} />
+    </div>
   );
 }
 
