@@ -6,6 +6,7 @@
 .weatherIcon .icon {
 	font-size: 76pt;
 	color: white;
-  font-family: "dripicons-weather"
+  font-family: "dripicons-weather";
+	font-weight: 100;
 }
 

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
 
 * {
   --day-bg-color: #10b7b7;
@@ -6,7 +7,7 @@
   --cloudy-bg-color: #7a808f;
   --thunder-bg-color: #2b3937;
   --rain-bg-color: #4b8379;
-  --snow-bg-color: #98c6ca;
+  --snow-bg-color: #98c6ff;
   --fog-bg-color: #aeaeae;
 
   --day-opac-bg-color: #10b7b7a0;
@@ -14,16 +15,15 @@
   --cloudy-opac-bg-color: #7a808fc0;
   --thunder-opac-bg-color: #2b3937a0;
   --rain-opac-bg-color: #4b8379a0;
-  --snow-opac-bg-color: #98c6caa0;
+  --snow-opac-bg-color: #98c6ffa0;
   --fog-opac-bg-color: #aeaeaea0;
 
   font-weight: bolder;
+  transition: .25s;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -31,6 +31,13 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 460px) {
+  body {
+    letter-spacing: 0;
+  }
 }
 
 

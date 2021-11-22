@@ -1,0 +1,6 @@
+.weatherFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1em 0 0 0;
+}

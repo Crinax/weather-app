@@ -2,8 +2,9 @@ import React from 'react';
 
 import style from './WeatherCard.module.css';
 import WeatherHeader from '../WeatherHeader';
-import { ResponseType } from '../../types';
+import WeatherFooter from '../WeatherFooter';
 import Loader from '../Loader';
+import { ResponseType } from '../../types';
 
 const backgroundsDict: { [key: string]: string } = {
   'Thunderstorm': style.weatherCardThunder,
@@ -68,7 +69,15 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
 
   return (
     <div className={strClasses}>
-      <WeatherHeader weatherData={weatherData} isDay={theme === style.weatherCardDay}/>
+      <WeatherHeader weatherData={weatherData} isDay={theme === style.weatherCardDay} />
+      <WeatherFooter
+        pressure={weatherData.data!.weather.pressure}
+        humidity={weatherData.data!.weather.humidity}
+        wind={weatherData.data!.weather.wind}
+        clouds={weatherData.data!.weather.clouds}
+        sunrise={weatherData.data!.weather.sunrise}
+        sunset={weatherData.data!.weather.sunset}
+      />
     </div>
   );
 }

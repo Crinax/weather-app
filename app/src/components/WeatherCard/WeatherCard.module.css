@@ -1,13 +1,15 @@
 .weatherCard {
-  min-height: 600px;
-  max-width: 600px;
-  max-height: 800px;
+  height: 450px;
+  width: 458px;
   border-radius: 10px;
   color: white;
   font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 458px) {
   .weatherCard {
     width: 100vw;
     min-width: none;
