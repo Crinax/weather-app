@@ -62,8 +62,6 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
     (nightBorders.dayEnd.up >= date && nightBorders.dayEnd.down < date)
   ) theme = style.weatherCardNight;
 
-  console.log({ date, nightBorders, theme, bgColor });
-
   classes = [style.weatherCard, theme, bgColor ? bgColor : ''];
   let strClasses = classes.join(' ');
 

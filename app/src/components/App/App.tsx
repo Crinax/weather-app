@@ -12,8 +12,6 @@ const ObservableWeatherCard = observer(() => (<WeatherCard weatherData={WeatherS
 
 function App() {
 
-  console.log(WeatherStore);
-
   return (
     <div className="App">
       <ObservableWeatherCard />

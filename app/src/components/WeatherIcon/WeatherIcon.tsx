@@ -136,8 +136,6 @@ export default function WeatherIcon({ id, name, description, isDay }: IWeatherIc
       iconStyle = icon['diw-clouds'];
   }
 
-  console.log({ id, iconStyle, style, isDay, icon });
-
   return (
     <div className={style.weatherIcon}>
       <span className={`${style.icon} ${iconStyle}`}></span>
