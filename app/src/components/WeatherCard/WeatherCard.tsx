@@ -43,9 +43,13 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
   let nowDate = date.toLocaleDateString();
   let splitSymbol = '/';
 
-  if (nowDate.indexOf('.') !== -1) splitSymbol = '.';
+  if (nowDate.indexOf('.') !== -1) {
+    splitSymbol = '.';
+    nowDate = nowDate.split(splitSymbol).reverse().join('/');
+  } else {
+    nowDate = nowDate.split(splitSymbol).join('/');
+  }
   
-  nowDate = nowDate.split(splitSymbol).reverse().join('/');
   const nightBorders = {
     dayBegin: {
       up: new Date(`${nowDate}, 00:00:00`),
@@ -58,12 +62,14 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
   }
 
   if (
-    (nightBorders.dayBegin.up <= date && nightBorders.dayBegin.down < date) ||
-    (nightBorders.dayEnd.up >= date && nightBorders.dayEnd.down < date)
+    (nightBorders.dayBegin.up <= date && nightBorders.dayBegin.down > date) ||
+    (nightBorders.dayEnd.up <= date && nightBorders.dayEnd.down > date)
   ) theme = style.weatherCardNight;
 
   classes = [style.weatherCard, theme, bgColor ? bgColor : ''];
   let strClasses = classes.join(' ');
+
+  console.log({ theme, day: style.weatherCardDay, nightBorders, nowDate })
 
   return (
     <div className={strClasses}>
