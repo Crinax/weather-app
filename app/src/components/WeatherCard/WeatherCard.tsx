@@ -69,8 +69,6 @@ function WeatherCard({ weatherData }: IWeatherCardProps) {
   classes = [style.weatherCard, theme, bgColor ? bgColor : ''];
   let strClasses = classes.join(' ');
 
-  console.log({ theme, day: style.weatherCardDay, nightBorders, nowDate })
-
   return (
     <div className={strClasses}>
       <WeatherHeader weatherData={weatherData} isDay={theme === style.weatherCardDay} />
