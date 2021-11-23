@@ -2,7 +2,7 @@ import React from 'react';
 
 import style from './WeatherFooter.module.css';
 import WindDirection from '../WindDirection';
-import SunPoints from '../SunPoints';
+import DataTable from '../DataTable';
 import { WindResponseType } from '../../types';
 
 interface IWeatherFooterProps {
@@ -23,9 +23,12 @@ export default function WeatherFooter({ wind, sunrise, sunset }: IWeatherFooterP
   const sunsetTime = sunsetDate.slice(0, 8);
 
   return (
-    <div className={style.weatherFooter}>
-      <WindDirection speed={wind.speed} deg={wind.deg} gust={wind.gust} />
-      <SunPoints sunrise={sunriseTime} sunset={sunsetTime} />
-    </div>
+    <>
+      <span className={style.weatherFooterHeader}>Wind and Sun</span>
+      <div className={style.weatherFooter}>
+        <WindDirection deg={wind.deg} />
+        <DataTable sunrise={sunriseTime} sunset={sunsetTime} speed={wind.speed} gust={wind.gust} />
+      </div>
+    </>
   )
 }

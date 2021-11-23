@@ -12,18 +12,14 @@ export default function Temperature({ temp }: ITemperatureProps) {
 
   return (
     <table className={style.temperature}>
-      <tbody>
+      <tbody className={style.tempTableBody}>
         <tr className={style.dataTemperature}>
-          <td className={style.tempHeaderValue}>Meteorological:</td>
-          <td className={style.tempValue}>{data.kelvin.toFixed(2)} &deg;K</td>
-          <td className={style.tempValue}>{data.celsius.toFixed(2)} &deg;C</td>
-          <td className={style.tempValue}>{data.farenheit.toFixed(2)} &deg;F</td>
+          <td className={style.tempHeaderValue}>Meteorological</td>
+          <td className={style.tempHeaderValue}>Feels like</td>
         </tr>
         <tr className={style.dataTemperature}>
-          <td className={`${style.tempHeaderValue} ${style.tempHeaderFeels}`}>Feels like:</td>
-          <td className={style.tempValue}>{feels.kelvin.toFixed(2)} &deg;K</td>
-          <td className={style.tempValue}>{feels.celsius.toFixed(2)} &deg;C</td>
-          <td className={style.tempValue}>{feels.farenheit.toFixed(2)} &deg;F</td>
+          <td className={style.tempValue}>{data.celsius.toFixed()} &deg;C / {data.farenheit.toFixed()} &deg;F</td>
+          <td className={style.tempValue}>{feels.celsius.toFixed()} &deg;C / {feels.farenheit.toFixed()} &deg;F</td>
         </tr>
       </tbody>
     </table>

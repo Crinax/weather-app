@@ -1,5 +1,5 @@
 .windDirection .icon {
-  font-size: 62pt;
+  font-size: 52pt;
 	color: white;
   font-family: "dripicons-weather";
   font-weight: 10;
@@ -7,9 +7,8 @@
 
 .windDirection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  align-self: end;
 }
 
 .windInfo {
@@ -24,6 +23,23 @@
   font-weight: bolder;
 }
 
-.header {
-  margin: 0 2em 0 0;
+.compass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.western {
+  margin: 0 .5em 0 0;
+}
+.eastwood {
+  margin: 0 0 0 .5em;
+}
+
+.north, .south {
+  margin: 0 auto;
+}
+
+.cardinalDir {
+  font-size: 13pt;
 }

@@ -2,5 +2,7 @@
   width: 80%;
   word-wrap: break-word;
   text-align: center;
-  margin: 1em 0 1em 0;
+  padding: 1em 0 1em 0;
+  border: 3px solid #fff4;
+  border-radius: 10px;
 }

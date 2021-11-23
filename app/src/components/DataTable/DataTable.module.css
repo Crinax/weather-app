@@ -20,7 +20,9 @@
 .pointText {
   margin: 0;
   padding: 0;
+  justify-self: center;
 }
+
 .pointText:first-child {
   padding: 0 1em 0 1em;
   text-align: right;
@@ -28,4 +30,8 @@
 
 .pointsRow {
   align-self: baseline;
+}
+
+.hidden {
+  opacity: 0;
 }

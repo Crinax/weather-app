@@ -27,9 +27,9 @@ function WeatherHeader({ weatherData, isDay }: IWeatherHeaderProps): JSX.Element
 
   return (
     <div className={styles.weatherHeader}>
+      <City data={city} />
       <WeatherIcon id={weather.id} name={weather.main} description={weather.description} isDay={isDay} />
       <Temperature temp={weather.temperature} />
-      <City data={city} />
     </div>
   );
 }
